@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Cart</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+      <h3>HANDICRAFT STORE</h3>
+    </div>
+
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="#About">About</a>
+      <a href="product.html">Product</a>
+      <a href="#Contact">Contact</a>
+      <a href="#Review">Review</a>
+
+      <div class="search-box">
+        <select>
+          <option disabled selected>Search Categories</option>
+          <optgroup label="Event Decoration">
+            <option>Wedding Stage Setup</option>
+            <option>Flower Garlands</option>
+            <option>Event Lights</option>
+            <option>Mandap Decorations</option>
+          </optgroup>
+          <optgroup label="Home Decoration">
+            <option>Wall Hangings</option>
+            <option>Handmade Lamps</option>
+            <option>Table Decor</option>
+            <option>Cushion Covers</option>
+          </optgroup>
+          <optgroup label="Gift Items">
+            <option>Handmade Jewelry</option>
+            <option>Gift Hampers</option>
+            <option>Festive Boxes</option>
+            <option>Painted Pots</option>
+          </optgroup>
+          <optgroup label="Wooden Items">
+            <option>Wooden Carvings</option>
+            <option>Wooden Toys</option>
+            <option>Wooden Key Holders</option>
+            <option>Wooden Photo Frames</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button onclick="location.href='seller.html'">Seller</button>
+      <button onclick="location.href='login.html'">Login</button>
+      <button onclick="location.href='cart.html'"><i class="fas fa-shopping-cart"></i></button>
+    </div>
+  </nav>
+
+  <!-- Cart Page Content -->
+  <main class="cart-page">
+    <h2 class="cart-title">Your Cart</h2>
+    <div class="cart-items" id="cartItems"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

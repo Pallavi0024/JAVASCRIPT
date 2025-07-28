@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seller Dashboard - Local Handicraft Store</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Seller Dashboard</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Stats Section -->
+  <section class="stats-cards">
+    <div class="card" id="total-products">Products Added: 0</div>
+    <div class="card" id="products-sold">Products Sold: 0</div>
+    <div class="card" id="products-returned">Products Returned: 0</div>
+  </section>
+
+  <!-- Add Product Form -->
+  
+    <h2 id="head">Add New Product</h2>
+
+ <form id="productForm">
+  <input type="text" id="productName" placeholder="Product Name" required>
+  <input type="text" id="productDescription" placeholder="Description" required>
+  <input type="number" id="productPrice" placeholder="Price" required>
+  <input type="text" id="productCategory" placeholder="Category" required>
+  <input type="file" id="productImage" accept="image/*" required>
+  <button type="submit">Add Product</button>
+</form>
+
+  <!-- Product List -->
+  <section>
+    <h2 style="text-align:center;">Added Products</h2>
+    <div class="product-container" id="product-list"></div>
+  </section>
+
+  <!-- Shipping Partner Details -->
+  <section class="shipping-section">
+    <h2>Shipping Partner Details</h2>
+    <p><strong>Partner:</strong> Fast box Delivery</p>
+    <p><strong>Pickup Timing:</strong> 9 AM - 6 PM</p>
+    <p><strong>Contact:</strong> +91-9995074207</p>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>

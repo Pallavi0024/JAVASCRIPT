@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seller Access Portal</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #fffdf9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  width: 70%;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 12px;
+  margin-top: 120px;
+}
+
+/* Left Side */
+.left {
+  flex: 1 1 500px;
+  padding: 20px;
+  background-color: #f5f2ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.form-box {
+  
+  
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-box.active {
+  display: flex;
+}
+
+.form-box h2 {
+  
+  margin-bottom: 15px;
+  color: #4a2f20;
+  font-size: 24px;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box input,
+.form-box select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+  
+}
+
+.form-box input:focus,
+.form-box select:focus {
+  border-color: #8b5e3c;
+}
+
+.form-box button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.form-box button:hover {
+  background-color: #45a049;
+}
+
+.form-switch {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.form-switch a {
+  color: #040783;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Right Side */
+.right {
+  flex: 1 1 400px;
+  background: #270770;
+  color: white;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.right h2 {
+  font-size: 28px;
+}
+
+.right p {
+  font-size: 16px;
+  max-width: 300px;
+}
+
+.right button {
+  background-color: white;
+  color: #270770;
+  border: 2px solid #fff;
+  width: 160px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.right button:hover {
+  background-color: #f5f2ef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    flex: 1 1 100%;
+    padding: 30px 20px;
+  }
+
+  .form-box {
+    max-width: 100%;
+  }
+
+  .right button {
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Side Forms -->
+    <div class="left">
+      <!-- Login Form -->
+      <div class="form-box" id="loginForm">
+        <h2>Login</h2>
+        <form onsubmit="redirectToDashboard(event)">
+          <input type="text" placeholder="Email or Phone" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div class="form-switch">Forgot your password? <a onclick="switchForm('resetForm')">Reset</a></div>
+        <div class="form-switch">Don't have an account? <a onclick="switchForm('signupForm')">Sign Up</a></div>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form-box active" id="signupForm">
+        <h2>Register as Seller</h2>
+        <form onsubmit="redirectToDashboard(event)">
+          <input type="text" placeholder="First Name" required />
+          <input type="text" placeholder="Last Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="Aadhar Number" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Create Password" required />
+          <select id="product" name="product" required>
+            <option value="" disabled selected>Select Product</option>
+            <option value="Handicrafts">Handicrafts</option>
+            <option value="Paintings">Paintings</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Textiles">Textiles</option>
+            <option value="Home Decor">Home Decor</option>
+            <option value="Toys">Toys</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Other">Other</option>
+          </select>
+          <button type="submit">Register</button>
+        </form>
+        <div class="form-switch">Already have an account? <a onclick="switchForm('loginForm')">Login</a></div>
+      </div>
+
+      <!-- Reset Password Form -->
+      <div class="form-box" id="resetForm">
+        <h2>Reset Password</h2>
+        <form onsubmit="event.preventDefault(); alert('Reset link sent!')">
+          <input type="email" placeholder="Enter Registered Email" required />
+          <button type="submit">Send Reset Link</button>
+        </form>
+        <div class="form-switch">Remember your password? <a onclick="switchForm('loginForm')">Login</a></div>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right">
+      <h2 style="text-align: center;">Welcome Seller!</h2>
+      <p style="text-align: center;">Start your journey to sell amazing products online.</p>
+      <button onclick="switchForm('signupForm')">Register Now</button>
+      <button onclick="switchForm('loginForm')">Login</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
